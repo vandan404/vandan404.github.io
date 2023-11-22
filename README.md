@@ -1,1 +1,3 @@
-# vandanparakh.me
+# vandan.tech
+
+personal website
