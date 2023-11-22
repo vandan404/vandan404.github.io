@@ -21,10 +21,10 @@
 
   $(document).ready(function () {
     var links = [
-      // {
-      //   name: "discord",
-      //   link: "https://discord.com/users/656827011158769665",
-      // },
+      {
+        name: "discord",
+        link: "https://discordapp.com/users/1101342880389419159",
+      },
 
       // {
       //   name: "spotify",
@@ -38,6 +38,10 @@
       {
         name: "github",
         link: "https://github.com/vandan404",
+      },
+      {
+        name: "steam",
+        link: "https://steamcommunity.com/id/vandanlol/",
       },
     ];
 
@@ -143,51 +147,62 @@
   };
 
   (function () {
-      $.getJSON('https://freegeoip.app/json/', function (data) {
+    $.getJSON("https://freegeoip.app/json/", function (data) {
+      writeLine(
+        [
+          "<span style='font-size: 14px; color: #00aff2;'>Welcome</span>...",
+          "Granting access to <span style='font-size: 14px; color: #06d;'>[vandy.one]</span>...",
+        ],
+        30,
+        function () {
+          if (app.skippedIntro) return;
 
-          writeLine(["<span style='font-size: 14px; color: #00aff2;'>Welcome</span>...", "Granting access to <span style='font-size: 14px; color: #06d;'>[vandy.one]</span>..."], 30, function () {
+          clearCursor();
 
-              if (app.skippedIntro)
-              	return;
+          var usernames = ["user", "dude"];
+
+          writeLine(
+            [
+              "Access granted! <span style='font-size: 14px; color: #0f0;'>[success]</span>",
+              "Welcome back, <i style='color: #0f0'>" +
+                (data.ip
+                  ? data.ip
+                  : usernames[Math.floor(Math.random() * usernames.length)]) +
+                "</i>! By the way, nice to see someone from " +
+                (data.country_name ? data.country_name : "your country") +
+                " here!",
+            ],
+            30,
+            500,
+            function () {
+              if (app.skippedIntro) return;
 
               clearCursor();
 
-              var usernames = ["user", "dude"];
+              writeLine(
+                ["<i style='color: #FF0000'>vandanparakh.me</i>"],
+                120,
+                500,
+                function () {
+                  timeouts.push(
+                    setTimeout(function () {
+                      if (app.skippedIntro) return;
 
-              writeLine(["Access granted! <span style='font-size: 14px; color: #0f0;'>[success]</span>", "Welcome back, <i style='color: #0f0'>" +  ((data.ip) ? data.ip : usernames[Math.floor(Math.random()*usernames.length)])
-                  + "</i>! By the way, nice to see someone from " + ((data.country_name) ? data.country_name : 'your country') + " here!"], 30, 500, function () {
+                      clearCursor();
 
-                  if (app.skippedIntro)
-                      return;
-
-                  clearCursor();
-
-                  writeLine(["<i style='color: #FF0000'>vandy.one</i>"], 120, 500, function () {
-
-                      timeouts.push(setTimeout(function () {
-
-                          if (app.skippedIntro)
-                              return;
-
-                          clearCursor();
-
-                          setTimeout(function () {
-
-                              skipIntro();
-
-                          }, 500);
-
-                      }, 1000));
-
-                  });
-
-              });
-
-          });
-
-      });
-
-  })()
+                      setTimeout(function () {
+                        skipIntro();
+                      }, 500);
+                    }, 1000)
+                  );
+                }
+              );
+            }
+          );
+        }
+      );
+    });
+  })();
 
   var skipIntro = function () {
     if (app.skippedIntro) return;

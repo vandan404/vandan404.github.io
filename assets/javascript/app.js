@@ -7,39 +7,51 @@ var _app = function () {
   this.skippedIntro = false;
   this.backgroundToggler = false;
   this.shouldIgnoreVideo = false;
-  this.effects = ["bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "jello"];
-  this.brandDescription = ["web devoloper"];
+  this.effects = [
+    "bounce",
+    "flash",
+    "pulse",
+    "rubberBand",
+    "shake",
+    "swing",
+    "tada",
+    "wobble",
+    "jello",
+  ];
+  this.brandDescription = ["web developer"];
 
-  this.titleChanger = function (text, delay) {
-      text = text || ["v", "va", "van", "vand", "vandan", "vandanp"];
-      delay = delay || 250;
+  //   this.titleChanger = function (text, delay) {
+  //       text = text || ["v", "va", "van", "vand", "vandan", "vandanp"];
+  //       delay = delay || 250;
 
-      var counter = 0;
+  //       var counter = 0;
 
-      setInterval(function () {
-          if (counter < text.length) document.title = text[counter++];
-          else document.title = text[(counter = 0)];
-      }, delay);
-  };
+  //       setInterval(function () {
+  //           if (counter < text.length) document.title = text[counter++];
+  //           else document.title = text[(counter = 0)];
+  //       }, delay);
+  //   };
 
   this.iconChanger = function (urls, delay) {
-      if (!urls) return;
+    if (!urls) return;
 
-      delay = delay || 2000;
+    delay = delay || 2000;
 
-      var counter = 0;
+    var counter = 0;
 
-      setInterval(function () {
-          if (counter < urls.length) {
-              var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
-              link.type = "image/x-icon";
-              link.rel = "shortcut icon";
-              link.href = urls[counter];
-              document.getElementsByTagName("head")[0].appendChild(link);
-          } else counter = 0;
+    setInterval(function () {
+      if (counter < urls.length) {
+        var link =
+          document.querySelector("link[rel*='icon']") ||
+          document.createElement("link");
+        link.type = "image/x-icon";
+        link.rel = "shortcut icon";
+        link.href = urls[counter];
+        document.getElementsByTagName("head")[0].appendChild(link);
+      } else counter = 0;
 
-          ++counter;
-      }, delay);
+      ++counter;
+    }, delay);
   };
 };
 
