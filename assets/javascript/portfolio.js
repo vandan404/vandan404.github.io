@@ -33,11 +33,7 @@
 
       {
         name: "mail",
-        link: "mailto:",
-      },
-      {
-        name: "youtube",
-        link: "https://www.youtube.com/channel/UCSYQGGr44pskdPwOJu21c4g",
+        link: "mailto:hi@vandanparakh.me",
       },
       {
         name: "github",
